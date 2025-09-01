@@ -8,7 +8,7 @@ function NavComponent() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -17,6 +17,7 @@ function NavComponent() {
             <Nav.Link as={Link} to="gallery">Gallery</Nav.Link>
             <Nav.Link as={Link} to="counter">Counter</Nav.Link>
             <Nav.Link as={Link} to="useEffectHook">Use Effect Counter</Nav.Link>
+            <Nav.Link as={Link} to="useRefHook">Use Ref</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-export const useEffectHook = () => {
+ const useEffectHook = () => {
 
     const [isCount, setCount] = useState(1);
     const [isAnotherCount, setAnotherCount] = useState(0);
+    const [isAPIData, setAPIDAata] = useState([]);
 
     const incrementHandler = () => {
         setCount(isCount + 1);
@@ -16,13 +17,22 @@ export const useEffectHook = () => {
 
     const TodosApi = ()=>{
         fetch(`https://jsonplaceholder.typicode.com/todos/${isCount}`)
-      .then(response => response.json())
-      .then(json => console.log(json))
+        .then(response => response.json())
+        .then(jsonData => {
+            setAPIDAata(jsonData);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+   
+
+      
     }
     
     useEffect(() => {
         console.log('counter: ',isCount)
         TodosApi();
+      
     },[isCount])
     
     useEffect(()=>{
@@ -30,6 +40,25 @@ export const useEffectHook = () => {
     },[isAnotherCount])
 
     return (<>
+
+<h1>API DATA</h1>
+
+{
+isAPIData.map(item =>(
+    <div>
+
+<h1>hello</h1>
+    <p>{item.title}</p>
+    </div>
+))
+}
+
+
+
+
+
+
+
         <h1 className='text-center'>Counter APP with useEffect:</h1>
         <div className="container">
             <p>Count: {isCount}</p>
@@ -40,3 +69,4 @@ export const useEffectHook = () => {
 
     </>)
 }
+export default useEffectHook

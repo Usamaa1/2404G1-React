@@ -1,6 +1,6 @@
 import React from 'react'
 import { ProductCard } from '../Product/ProductCard'
-export const ContactComponent = () => {
+const ContactComponent = () => {
   return (
     <>
       <div>ContactComponent</div>
@@ -11,3 +11,4 @@ export const ContactComponent = () => {
     </>
   )
 }
+export default ContactComponent

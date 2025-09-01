@@ -1,6 +1,6 @@
 import React from 'react'
 import { ProductCard } from '../Product/ProductCard'
-export const GalleryComponent = () => {
+const GalleryComponent = () => {
   return (
     <>
     <div>GalleryComponent</div>
@@ -11,3 +11,4 @@ export const GalleryComponent = () => {
     </>
   )
 }
+export default GalleryComponent
